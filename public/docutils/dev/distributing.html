@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Docutils Distributor’s Guide &#8212; Thy&#39;s Notes  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Thy's Notes</a></h1>
+
+
+
+<p class="blurb">Collection of Notes, Snippets, HowTos, Public Docs, etc</p>
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../public_index.html">Public Docs</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+              <div class="related top">
+                &nbsp;
+  <nav id="rellinks">
+    <ul>
+    </ul>
+  </nav>
+              </div>
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="docutils-distributor-s-guide">
+<h1><a class="reference external" href="http://docutils.sourceforge.net/">Docutils</a> Distributor’s Guide<a class="headerlink" href="#docutils-distributor-s-guide" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">Author</dt>
+<dd class="field-odd"><p>Lea Wiemann</p>
+</dd>
+<dt class="field-even">Contact</dt>
+<dd class="field-even"><p><a class="reference external" href="mailto:docutils-develop&#37;&#52;&#48;lists&#46;sourceforge&#46;net">docutils-develop<span>&#64;</span>lists<span>&#46;</span>sourceforge<span>&#46;</span>net</a></p>
+</dd>
+<dt class="field-odd">Revision</dt>
+<dd class="field-odd"><p>$Revision$</p>
+</dd>
+<dt class="field-even">Date</dt>
+<dd class="field-even"><p>$Date$</p>
+</dd>
+<dt class="field-odd">Copyright</dt>
+<dd class="field-odd"><p>This document has been placed in the public domain.</p>
+</dd>
+</dl>
+<div class="contents topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#docutils-distributor-s-guide" id="id1">Docutils Distributor’s Guide</a></p>
+<ul>
+<li><p><a class="reference internal" href="#dependencies" id="id2">Dependencies</a></p></li>
+<li><p><a class="reference internal" href="#python-files" id="id3">Python Files</a></p></li>
+<li><p><a class="reference internal" href="#executables" id="id4">Executables</a></p></li>
+<li><p><a class="reference internal" href="#documentation" id="id5">Documentation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#removing-the-txt-files" id="id6">Removing the <code class="docutils literal notranslate"><span class="pre">.txt</span></code> Files</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#other-files" id="id7">Other Files</a></p></li>
+<li><p><a class="reference internal" href="#configuration-file" id="id8">Configuration File</a></p></li>
+<li><p><a class="reference internal" href="#tests" id="id9">Tests</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>This document describes how to create packages of Docutils (e.g. for
+shipping with a Linux distribution).  If you have any questions,
+please direct them to the <a class="reference external" href="../user/mailing-lists.html#docutils-develop">Docutils-develop</a> mailing list.</p>
+<p>First, please download the most current <a class="reference external" href="http://docutils.sourceforge.net/#download">release tarball</a> and unpack
+it.</p>
+<div class="section" id="dependencies">
+<h2><a class="toc-backref" href="#id2">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<p>Docutils has the following dependencies:</p>
+<ul class="simple">
+<li><p>Python 2.7 or later is required.  Use “&gt;= Python 2.7” in the
+dependencies.</p></li>
+<li><p>Docutils may optionally make use of the PIL (<a class="reference external" href="https://en.wikipedia.org/wiki/Python_Imaging_Library">Python Imaging
+Library</a> or <a class="reference external" href="https://pypi.org/project/Pillow/">Pillow</a>).  If PIL is present, it is automatically
+detected by Docutils.</p></li>
+<li><p>Docutils recommends the <a class="reference external" href="http://pygments.org/">Pygments</a> syntax hightlighter. If available, it
+is used for highlighting the content of <a class="reference external" href="../ref/rst/directives.html#code">code directives</a> and roles as
+well as included source code files (with the “code” option to the <a class="reference external" href="../ref/rst/directives.html#include">include</a>
+directive).</p></li>
+<li><p>Docutils can use the <a class="reference external" href="https://pypi.org/project/recommonmark/">recommonmark</a> parser to parse input in
+the Markdown format (new in 0.17).</p></li>
+</ul>
+</div>
+<div class="section" id="python-files">
+<h2><a class="toc-backref" href="#id3">Python Files</a><a class="headerlink" href="#python-files" title="Permalink to this headline">¶</a></h2>
+<p>The Docutils Python files must be installed into the
+<code class="docutils literal notranslate"><span class="pre">site-packages/</span></code> directory of Python.  Running <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span>
+<span class="pre">install</span></code> should do the trick, but if you want to place the files
+yourself, you can just install the <code class="docutils literal notranslate"><span class="pre">docutils/</span></code> directory of the
+Docutils tarball to <code class="docutils literal notranslate"><span class="pre">/usr/lib/python/site-packages/docutils/</span></code>.  In
+this case you should also compile the Python files to <code class="docutils literal notranslate"><span class="pre">.pyc</span></code> and/or
+<code class="docutils literal notranslate"><span class="pre">.pyo</span></code> files so that Docutils doesn’t need to be recompiled every
+time it’s executed.</p>
+</div>
+<div class="section" id="executables">
+<h2><a class="toc-backref" href="#id4">Executables</a><a class="headerlink" href="#executables" title="Permalink to this headline">¶</a></h2>
+<p>The executable front-end tools are located in the <code class="docutils literal notranslate"><span class="pre">tools/</span></code> directory
+of the Docutils tarball.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">rst2*.py</span></code> tools are intended for end-users. You should install them
+to <code class="docutils literal notranslate"><span class="pre">/usr/bin/</span></code>.  You do not need to change the names (e.g. to
+<code class="docutils literal notranslate"><span class="pre">docutils-rst2html.py</span></code>) because the <code class="docutils literal notranslate"><span class="pre">rst2</span></code> prefix is unique.</p>
+</div>
+<div class="section" id="documentation">
+<h2><a class="toc-backref" href="#id5">Documentation</a><a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<p>The documentation should be generated using <code class="docutils literal notranslate"><span class="pre">buildhtml.py</span></code>.  To
+generate HTML for all documentation files, go to the <code class="docutils literal notranslate"><span class="pre">tools/</span></code>
+directory and run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Place html4css1.css in base directory.</span>
+<span class="n">cp</span> <span class="o">../</span><span class="n">docutils</span><span class="o">/</span><span class="n">writers</span><span class="o">/</span><span class="n">html4css1</span><span class="o">/</span><span class="n">html4css1</span><span class="o">.</span><span class="n">css</span> <span class="o">..</span>
+<span class="o">./</span><span class="n">buildhtml</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">stylesheet</span><span class="o">-</span><span class="n">path</span><span class="o">=../</span><span class="n">html4css1</span><span class="o">.</span><span class="n">css</span> <span class="o">..</span>
+</pre></div>
+</div>
+<p>Then install the following files to <code class="docutils literal notranslate"><span class="pre">/usr/share/doc/docutils/</span></code> (or
+wherever you install documentation):</p>
+<ul>
+<li><p>All <code class="docutils literal notranslate"><span class="pre">.html</span></code> and <code class="docutils literal notranslate"><span class="pre">.txt</span></code> files in the base directory.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">docs/</span></code> directory.</p>
+<p>Do not install the contents of the <code class="docutils literal notranslate"><span class="pre">docs/</span></code> directory directly to
+<code class="docutils literal notranslate"><span class="pre">/usr/share/doc/docutils/</span></code>; it’s incomplete and would contain
+invalid references!</p>
+</li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">licenses/</span></code> directory.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">html4css1.css</span></code> in the base directory.</p></li>
+</ul>
+<div class="section" id="removing-the-txt-files">
+<h3><a class="toc-backref" href="#id6">Removing the <code class="docutils literal notranslate"><span class="pre">.txt</span></code> Files</a><a class="headerlink" href="#removing-the-txt-files" title="Permalink to this headline">¶</a></h3>
+<p>If you are tight with disk space, you can remove all <code class="docutils literal notranslate"><span class="pre">.txt</span></code> files in
+the tree except for:</p>
+<ul class="simple">
+<li><p>those in the <code class="docutils literal notranslate"><span class="pre">licenses/</span></code> directory because they have not been
+processed to HTML and</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user/rst/cheatsheet.txt</span></code> and <code class="docutils literal notranslate"><span class="pre">user/rst/demo.txt</span></code>, which should
+be readable in source form.</p></li>
+</ul>
+<p>Before you remove the <code class="docutils literal notranslate"><span class="pre">.txt</span></code> files you should rerun <code class="docutils literal notranslate"><span class="pre">buildhtml.py</span></code>
+with the <code class="docutils literal notranslate"><span class="pre">--no-source-link</span></code> switch to avoid broken references to the
+source files.</p>
+</div>
+</div>
+<div class="section" id="other-files">
+<h2><a class="toc-backref" href="#id7">Other Files</a><a class="headerlink" href="#other-files" title="Permalink to this headline">¶</a></h2>
+<p>You may want to install the Emacs-Lisp files
+<code class="docutils literal notranslate"><span class="pre">tools/editors/emacs/*.el</span></code> into the appropriate directory.</p>
+</div>
+<div class="section" id="configuration-file">
+<h2><a class="toc-backref" href="#id8">Configuration File</a><a class="headerlink" href="#configuration-file" title="Permalink to this headline">¶</a></h2>
+<p>It is possible to have a system-wide configuration file at
+<code class="docutils literal notranslate"><span class="pre">/etc/docutils.conf</span></code>.  However, this is usually not necessary.  You
+should <em>not</em> install <code class="docutils literal notranslate"><span class="pre">tools/docutils.conf</span></code> into <code class="docutils literal notranslate"><span class="pre">/etc/</span></code>.</p>
+</div>
+<div class="section" id="tests">
+<h2><a class="toc-backref" href="#id9">Tests</a><a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h2>
+<p>While you probably do not need to ship the tests with your
+distribution, you can test your package by installing it and then
+running <code class="docutils literal notranslate"><span class="pre">alltests.py</span></code> from the <code class="docutils literal notranslate"><span class="pre">tests/</span></code> directory of the Docutils
+tarball.</p>
+<p>For more information on testing, view the <a class="reference external" href="http://docutils.sourceforge.net/docs/dev/testing.html">Docutils Testing</a> page.</p>
+</div>
+</div>
+
+
+          </div>
+              <div class="related bottom">
+                &nbsp;
+  <nav id="rellinks">
+    <ul>
+    </ul>
+  </nav>
+              </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2021, Thierry Humphrey.
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

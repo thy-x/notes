@@ -1,0 +1,9 @@
+# Thy's Notes
+
+```{eval-rst}
+.. toctree::
+    :maxdepth: 2
+
+    public/public_index
+
+```
